@@ -13,6 +13,19 @@ namespace Vividly1
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapMvcAttributeRoutes();
+
+
+            //Order of Routing matters!!! Bad way of routing
+            //routes.MapRoute(
+            //    "MoviesByReleaseDate",
+            //    "movies/released/{year}/{month}",
+            //    new { controller = "Movies", action = "ByReleaseDate" },
+            //    new { year = @"2015|2016", month = @"\d{2}"}
+            //);
+
+
+            //Default Route
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
